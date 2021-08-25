@@ -22,8 +22,11 @@ function bowl(i) {
 
     if(batsman == bowler) {
         localStorage.setItem("key2", total);
-
         alert("HOWAZAT! CPU score is: " + total)
+        location.href = "end.html";
+    } else if (total > localStorage.getItem("key1")) {
+        localStorage.setItem("key2", total);
+        alert("CPU crossed your score! CPU score is: " + total)
         location.href = "end.html";
     } else {
         countbowl();
@@ -39,8 +42,8 @@ function countbowl() {
     document.getElementById("score").innerHTML = "<strong>"+total+"</strong>";
 }
 function endFunc() {
-    var bowl = localStorage.getItem("key2");
     var bat = localStorage.getItem("key1");
+    var bowl = localStorage.getItem("key2");
     console.log(bat);
     console.log(bowl);
     console.log(bat-bowl);
